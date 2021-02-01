@@ -6,8 +6,7 @@ module.exports.profile = (req, res) => {
             if(user)
                 return res.render('users.ejs', {
                     title: 'User Page',
-                    content: 'User data will be shown here',
-                    user: user
+                    content: 'User data will be shown here'
                 });
             else
                 return res.redirect('/user/sign-in'); 
@@ -52,5 +51,10 @@ module.exports.create = (req, res) => {
 }
 
 module.exports.create_session = (req, res) => {
+    return res.redirect('/');
+}
+
+module.exports.destroySession = (req, res) => {
+    req.logout();
     return res.redirect('/');
 }
