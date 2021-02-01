@@ -17,12 +17,16 @@ module.exports.profile = (req, res) => {
 }
 
 module.exports.sign_in = (req, res) => {
+    if(req.isAuthenticated())
+        return res.redirect('/users/profile');
     return res.render('sign-in.ejs', {
         title: 'sign-in'
     });
 }
 
 module.exports.sign_up = (req, res) => {
+    if(req.isAuthenticated())
+        return res.redirect('/users/profile');
     return res.render('sign-up.ejs', {
         title: 'sign-up'
     });
